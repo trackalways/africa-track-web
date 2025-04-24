@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Truck, Building, Industry, Car, Shield, Briefcase } from 'lucide-react';
+import { Truck, Building, Factory, Car, Shield, Briefcase } from 'lucide-react';
 
 const Industries = () => {
   const industriesList = [
@@ -28,7 +28,7 @@ const Industries = () => {
         "Geofencing for worksite security",
         "Idle time reduction and productivity improvement"
       ],
-      icon: Industry
+      icon: Factory
     },
     {
       name: "Education & School Transportation",
