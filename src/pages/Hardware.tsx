@@ -2,64 +2,138 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Truck, Camera, Droplet, Compass, Watch } from 'lucide-react';
+import { MapPin, Droplet, Camera, Compass, Watch, Shield, AlertTriangle } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const Hardware = () => {
   const hardwareCategories = [
     {
-      title: "GPS Tracking Devices",
-      description: "Reliable location tracking for your fleet",
+      title: "Fuel Sensors",
+      description: "Optimize fuel usage, reduce costs, and prevent theft with real-time monitoring",
+      icon: Droplet,
       products: [
-        { name: 'FMB920', description: 'Compact and versatile GPS tracker' },
-        { name: 'FMB125', description: 'Cost-effective tracking solution' },
-        { name: 'FMB130', description: 'Advanced fleet management' },
-        { name: 'FMB140', description: 'Premium performance tracker' },
-        { name: 'WeTrack-2', description: 'Compact 2G GPS tracker' },
-        { name: 'Concox V5', description: 'Versatile 2G GPS tracker' },
-        { name: 'Protrack VT08S', description: 'Compact tracker with geofencing' },
-        { name: 'Protrack VT05R', description: 'Robust tracker for reliable monitoring' }
+        {
+          name: 'Omnicomm Series',
+          items: ['LLS5', 'LLS-EX 5', 'LLS-AF 4', 'LLS4'],
+          description: 'Premium fuel level monitoring solutions'
+        },
+        {
+          name: 'Escort Series',
+          items: ['TD-150 BLE', 'TD BLE', 'TD-600'],
+          description: 'Bluetooth-enabled fuel monitoring'
+        },
+        {
+          name: 'Mercetech Series',
+          items: ['SP-232', 'SP-Ble'],
+          description: 'Advanced fuel level sensors'
+        }
       ],
-      icon: MapPin
+      features: [
+        "Real-time fuel level monitoring",
+        "Theft detection alerts",
+        "Unauthorized usage notifications",
+        "Compatible with GPS trackers",
+        "Telematics software integration"
+      ]
     },
     {
-      title: "Fuel Sensors",
-      description: "Optimize fuel usage, reduce costs, and prevent theft",
+      title: "GPS Tracking Devices",
+      description: "Advanced tracking solutions for precise location monitoring and fleet management",
+      icon: MapPin,
       products: [
-        { name: 'Omnicomm LLS5', description: 'Premium fuel level sensor' },
-        { name: 'Omnicomm LLS-EX 5', description: 'Explosion-proof fuel sensor' },
-        { name: 'Omnicomm LLS-AF 4', description: 'Advanced fuel monitoring' },
-        { name: 'Omnicomm LLS4', description: 'Standard fuel level sensor' },
-        { name: 'Escort TD-150 BLE', description: 'Bluetooth-enabled fuel sensor' },
-        { name: 'Escort TD BLE', description: 'Compact BLE fuel sensor' },
-        { name: 'Escort TD-600', description: 'High-capacity fuel monitoring' },
-        { name: 'Mercetech Sp-232', description: 'Precision fuel level monitoring' }
+        {
+          name: 'FMB Series',
+          items: [
+            'FMB920 - Compact and versatile tracker',
+            'FMB125 - Cost-effective solution',
+            'FMB130 - Advanced fleet management',
+            'FMB140 - Premium performance'
+          ]
+        },
+        {
+          name: 'Concox Series',
+          items: [
+            'WeTrack-2 - Compact 2G tracker',
+            'V5 - Versatile tracking solution'
+          ]
+        },
+        {
+          name: 'ProTrack Series',
+          items: [
+            'VT08s - Compact with geofencing',
+            'VT05R - Robust monitoring solution'
+          ]
+        }
       ],
-      icon: Droplet
+      features: [
+        "Real-time location tracking",
+        "Geofencing capabilities",
+        "Advanced GNSS technology",
+        "Comprehensive fleet management",
+        "Rugged design for durability"
+      ]
     },
     {
       title: "AI Dash Cams",
-      description: "Enhance driver safety with intelligent monitoring",
+      description: "Intelligent camera systems for enhanced driver and vehicle safety",
+      icon: Camera,
       products: [
-        { name: 'MC402', description: 'Advanced AI dash cam with multiple cameras' },
-        { name: 'MC202X', description: 'Real-time driving behavior monitoring' },
-        { name: 'MC401', description: 'Advanced dash cam with built-in cameras' },
-        { name: 'JC400', description: 'AI-powered dash cam for fleet management' },
-        { name: 'JC261', description: 'Upgradeable 4G dash camera system' },
-        { name: 'JC170', description: 'Compact DMS camera for driver monitoring' }
+        {
+          name: 'MC Series',
+          items: [
+            'MC402 - Advanced AI with 4 cameras',
+            'MC202X - Real-time behavior monitoring',
+            'MC401 - Dual built-in cameras'
+          ],
+          description: 'AI-powered safety solutions'
+        },
+        {
+          name: 'Jimi Series',
+          items: [
+            'JC400 - AI-powered fleet management',
+            'JC170 - Compact DMS camera',
+            'JC261 - 4G upgradeable system'
+          ],
+          description: 'Advanced driver monitoring'
+        }
       ],
-      icon: Camera
+      features: [
+        "Lane departure warning",
+        "Forward collision alerts",
+        "Driver behavior monitoring",
+        "Fatigue detection",
+        "Real-time video streaming"
+      ]
     },
     {
       title: "Portable Trackers",
-      description: "Stay connected, anywhere, anytime",
+      description: "Versatile tracking solutions for various applications",
+      icon: Compass,
       products: [
-        { name: 'TA S119U', description: '6000mAh battery, up to 20 days backup' },
-        { name: 'TA S22', description: '10000mAh battery, 30-35 days backup' },
-        { name: 'TA UM666', description: '3-year battery life GPS tracker' },
-        { name: 'ID Card Tracker', description: 'Discreet tracking for school kids and employees' },
-        { name: 'GPS Watch', description: 'Wearable tracker with SOS features' }
+        {
+          name: 'Magnet Trackers',
+          items: [
+            'TA S22 - 10000mAh, 30-35 days backup',
+            'TA S119U - 6000mAh, 20 days backup',
+            'TA UM666 - 3-year battery life'
+          ]
+        },
+        {
+          name: 'Personal Trackers',
+          items: [
+            'ID Card Tracker - Discreet tracking',
+            'GPS Watch - Wearable safety device'
+          ]
+        }
       ],
-      icon: Compass
+      features: [
+        "Long battery life",
+        "Strong magnetic mounting",
+        "Real-time tracking",
+        "SOS alerts",
+        "Geofencing capabilities"
+      ]
     }
   ];
 
@@ -71,7 +145,7 @@ const Hardware = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Hardware Solutions</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Explore our comprehensive range of telematics hardware designed to meet all your tracking and monitoring needs.
+            Discover our comprehensive range of telematics hardware, designed and tested to meet the unique challenges of the African market.
           </p>
         </div>
       </div>
@@ -81,23 +155,45 @@ const Hardware = () => {
           {hardwareCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <div key={index} className="py-12">
-                <div className="text-center mb-12">
+              <div key={index} className="rounded-lg bg-white p-8 shadow-lg">
+                <div className="text-center mb-8">
                   <Icon size={48} className="mx-auto text-blue-700 mb-4" />
                   <h2 className="text-3xl font-bold text-blue-900 mb-2">{category.title}</h2>
                   <p className="text-gray-600 max-w-2xl mx-auto">{category.description}</p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {category.products.map((product, productIndex) => (
-                    <div 
-                      key={productIndex} 
-                      className="bg-white border rounded-lg p-6 text-center hover:shadow-lg transition transform hover:-translate-y-1"
-                    >
-                      <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                      <p className="text-gray-600">{product.description}</p>
-                    </div>
-                  ))}
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    {category.products.map((product, productIndex) => (
+                      <Card key={productIndex}>
+                        <CardHeader>
+                          <CardTitle>{product.name}</CardTitle>
+                          {product.description && (
+                            <CardDescription>{product.description}</CardDescription>
+                          )}
+                        </CardHeader>
+                        <CardContent>
+                          <ul className="list-disc list-inside space-y-2">
+                            {product.items.map((item, itemIndex) => (
+                              <li key={itemIndex} className="text-gray-700">{item}</li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+                    <ul className="space-y-3">
+                      {category.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center gap-2">
+                          <Shield className="text-green-500 h-5 w-5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             );
