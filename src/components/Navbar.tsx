@@ -6,11 +6,20 @@ import {
   NavigationMenuList, 
   NavigationMenuItem, 
   NavigationMenuTrigger, 
-  NavigationMenuContent 
+  NavigationMenuContent,
+  NavigationMenuLink
 } from "@/components/ui/navigation-menu";
-import { Bell } from 'lucide-react';
+import { Bell, Menu } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
@@ -25,6 +34,14 @@ const Navbar = () => {
             </Link>
           </div>
           
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" onClick={toggleMenu}>
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
+
+          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <NavigationMenu>
               <NavigationMenuList>
@@ -49,18 +66,53 @@ const Navbar = () => {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link to="/hardware" className="px-4 py-2 text-blue-900 hover:text-blue-700">
+                    Hardware
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link to="/software" className="px-4 py-2 text-blue-900 hover:text-blue-700">
+                    Software
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link to="/industries" className="px-4 py-2 text-blue-900 hover:text-blue-700">
+                    Industries
+                  </Link>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
           <div className="flex items-center gap-4">
-            <a href="/contact" className="text-blue-900 hover:text-blue-700">Contact</a>
-            <button className="fixed bottom-4 right-4 bg-blue-900 p-2 rounded-full text-white shadow-lg hover:bg-blue-800">
-              <Bell className="h-6 w-6" />
-            </button>
+            <Link to="/about" className="text-blue-900 hover:text-blue-700 hidden md:block">About</Link>
+            <Link to="/career" className="text-blue-900 hover:text-blue-700 hidden md:block">Career</Link>
+            <Link to="/contact" className="text-blue-900 hover:text-blue-700">Contact</Link>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="container mx-auto px-4 py-3 space-y-2">
+            <Link to="/" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Home</Link>
+            <Link to="/about" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>About</Link>
+            <Link to="/solutions" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Solutions</Link>
+            <Link to="/hardware" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Hardware</Link>
+            <Link to="/software" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Software</Link>
+            <Link to="/industries" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Industries</Link>
+            <Link to="/career" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Career</Link>
+            <Link to="/contact" className="block py-2 text-blue-900 hover:text-blue-700" onClick={toggleMenu}>Contact</Link>
+          </div>
+        </div>
+      )}
+
+      {/* Fixed notification bell */}
+      <button className="fixed bottom-4 right-4 bg-blue-900 p-2 rounded-full text-white shadow-lg hover:bg-blue-800">
+        <Bell className="h-6 w-6" />
+      </button>
     </nav>
   );
 };
