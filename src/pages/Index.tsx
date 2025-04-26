@@ -14,14 +14,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <Hero />
-      <div className="container mx-auto px-4 py-12 space-y-16">
-        <SoftwareFeatures />
-        <FuelSensors />
-        <GPSTrackers />
-        <DashCams />
-        <PortableTrackers />
-        <ContactSection />
+      <div className="pt-16"> {/* Added padding top for fixed navbar */}
+        <Hero />
+        <div className="container mx-auto px-4 py-12 space-y-16">
+          <SoftwareFeatures />
+          <FuelSensors />
+          <GPSTrackers />
+          <DashCams />
+          <PortableTrackers />
+          <ContactSection />
+        </div>
       </div>
       <Footer />
     </div>
